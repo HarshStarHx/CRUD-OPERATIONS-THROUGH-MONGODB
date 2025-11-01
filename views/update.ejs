@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update the Message </title>
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTFo9g6QLJ-P3k8PTrjfrkWBOZI5ptsWJW4g&s" type="image/x-icon">
+    <link rel="stylesheet" href="/update.css">
+</head>
+<body>
+    <div class="bubbles">
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:21"></span>
+        <span style="--i:27"></span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>📝 Update Message</h1>
+        
+        <div class="info-box">
+            <div class="info-item">
+                <div class="info-label">Sender</div>
+                <div class="info-value"><%= data.from %></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label"> Receiver</div>
+                <div class="info-value"><%= data.to %></div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Current Message</div>
+                <div class="info-value"><%= data.msg %></div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h1>✏️ Enter New Message</h1>
+            
+            <form action="/chats/<%= data._id %>?_method=PUT" method="POST">
+                <textarea 
+                    name="msg" 
+                    placeholder="Type your new message here..."
+                    required
+                ><%= data.msg %></textarea>
+                
+                <button type="submit"> Update Message</button>
+            </form>
+            
+</body>
+</html>

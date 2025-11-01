@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index route</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="shortcut icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.wfQncwPN4AFkk2ogRDWeZwHaHa%3Fpid%3DApi&f=1&ipt=50aab55996d99f32c4976b7dc193b6d9c15c080e91dcdb7b17d38a6e94f6204b&ipo=images" type="image/x-icon">
+</head>
+<body>
+<div class="container">
+  <div class="bubbles">
+   
+    <span style="--i:11"></span>
+    <span style="--i:12"></span>
+    <span style="--i:24"></span>
+    <span style="--i:10"></span>
+    <span style="--i:14"></span>
+    <span style="--i:23"></span>
+    <span style="--i:18"></span>
+    <span style="--i:16"></span>
+    <span style="--i:19"></span>
+    <span style="--i:20"></span>
+    <span style="--i:22"></span>
+    <span style="--i:25"></span>
+    
+  </div>
+  
+  <div class="details">
+    <h1>The chat history <span><h2 style="font-weight:600">(Entries:- <%=data.length%>) </h2></span></h1>
+    <form action="/chats/new" method="get">
+   <button class="new_chat">New Chat</button>
+    </form>
+    <br>
+    <% for(const dat of data) { %>
+      <div>
+        <h2>From(User):-> <%=dat.from %></h2>  
+        <h3>To(Accepter):-> <%=dat.to %></h3>
+        <h3>msg(User):-> <%=dat.msg%>  
+            <br>
+        <form action="/chats/<%=dat._id%>/edit"  method="GET" ><button class="edit">Edit Message</button>
+        </form> &nbsp; <form action="/chats/<%=dat._id%>?_method=DELETE"  method="POST" ><button class="delete">delete Message</button>
+        </form></h3>
+        <h4>Time : <%=dat.CreatedAt.toString().split(" ")[4]%></h4>
+        <h4>Date : <%=dat.CreatedAt.toString().split(" ").slice(0 , 4).join("-") %></h4>
+      </div>
+      <br>
+    <%}%>
+  </div>
+</div>
+</body>
+</html>
